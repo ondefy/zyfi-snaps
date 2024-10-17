@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Zyfi snap provides signature insights for the transaction type : 113 for ZKsync ecosystem.",
   "proposedName": "Zyfi Signature Insights",
   "repository": {
@@ -7,12 +7,12 @@
     "url": "https://github.com/MetaMask/template-snap-monorepo.git"
   },
   "source": {
-    "shasum": "ChSJ5YF6umfrCcQ77Aq/YXUBuJZsA8QlSgJRjni0g4U=",
+    "shasum": "xFrtxfrejy7Y6f0+ZwoOOrF4GCGUxMtxr/4kW2B+6iQ=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
         "iconPath": "images/blue-dark-sign.svg",
-        "packageName": "snap",
+        "packageName": "zyfi-signature-insights-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }
