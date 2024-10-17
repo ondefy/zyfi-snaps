@@ -67,6 +67,7 @@ node_modules/
 .env.test
 */.env
 */.env.*
+packages/site/.env.production
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
@@ -77,3 +78,4 @@ node_modules/
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+

@@ -1,15 +1,16 @@
 {
   "name": "zyfi-signature-insights-snap",
-  "version": "0.1.1",
-  "description": "The 'Hello, world!' of MetaMask Snaps, now written in TypeScript.",
+  "version": "0.1.2",
+  "description": "Zyfi snap provides signature insights for the transaction type : 113 for ZKsync ecosystem.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MetaMask/template-snap-monorepo.git"
+    "url": "https://github.com/ondefy/zyfi-snaps.git"
   },
   "license": "(MIT-0 OR Apache-2.0)",
   "main": "./dist/bundle.js",
   "files": [
     "dist/",
+    "images/",
     "snap.manifest.json"
   ],
   "scripts": {
