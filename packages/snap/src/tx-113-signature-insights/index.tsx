@@ -14,19 +14,19 @@ export const onSignature : OnSignatureHandler = async ({signature, signatureOrig
 
   let domain;
   let explorerLinks:any = {
-    "300" : "https://sepolia.explorer.zksync.io/address/",
-    "324": "https://explorer.zksync.io/address/", 
-    "388": "",
-    "282":"",
-    "11124":"",
-   "1_612_127":""
+    300 : "https://sepolia.explorer.zksync.io/address/",
+    324 : "https://explorer.zksync.io/address/", 
+    388 : "https://explorer.zkevm.cronos.org/address/",
+    282 : "https://testnet.zkevm.cronos.org/address/",
+    11124 :"https://explorer.testnet.abs.xyz/address/",
+  // "1_612_127":""
     };
   if (
     signatureMethod === 'eth_signTypedData_v3' ||
     signatureMethod === 'eth_signTypedData_v4'
   ) {
     domain = data.domain;
-    if(!(domain.chainId == '300' || domain.chainId == '324')){
+    if(!((Object.keys(explorerLinks).map(key => parseInt(key))).includes(domain.chainId))){
       return null;
     }
   }
@@ -73,8 +73,8 @@ export const onSignature : OnSignatureHandler = async ({signature, signatureOrig
       paymasterType = "Approval Based";
       const decodePaymasterInput = paymasterFlowInterface.decodeFunctionData("approvalBased",message.paymasterInput);
       feeTokenAddress = decodePaymasterInput._feeToken;
-      console.log("here");
       //feeTokenAmount = (decodePaymasterInput._allowance.toString()/10**18).toString();
+      feeTokenAmount = decodePaymasterInput._allowance.toString();
     }
   
   }
