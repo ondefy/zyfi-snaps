@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="paint0_linear_365_564" x1="0" x2="0.15" y1="1" y2="-0.12">
+   <stop stop-color="#138DBA"/>
+   <stop offset="1" stop-color="#58E3FE"/>
+  </linearGradient>
+ </defs>
+ <g class="layer">
+  <title>Layer 1</title>
+  <path clip-rule="evenodd" d="m23.86,4.68c10.56,0 19.13,9.18 19.13,20.5c0,9.8 -6.42,18 -15,20.02l-0.95,0l-8.68,-12.61l0,12.23c-7.88,-2.54 -13.62,-10.37 -13.62,-19.64c0,-11.32 8.56,-20.5 19.12,-20.5zm0,8.5l-11.84,12.71l8.67,0l8.68,12.61l0,-12.61l6.33,0l-11.84,-12.71z" fill="url(#paint0_linear_365_564)" fill-rule="evenodd" id="svg_1"/>
+ </g>
+</svg>
