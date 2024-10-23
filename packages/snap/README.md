@@ -1,6 +1,7 @@
 # Zyfi Paymaster Insight Snap
 
-This snap provides signature insights for the paymaster transaction type : 113 on ZKsync ecosystem. This snap supports following ZKevm Elastic Chains: ZKsync Era, ZKsync Sepolia Testnet, Cronos ZKevm Mainnet, Cronos ZKevm Testnet, Abstract Chain Testnet.
+This snap provides signature insights for the paymaster transaction type : 113 on ZKsync ecosystem. This snap supports following ZKevm Elastic Chains: 
+ZKsync Era, ZKsync Sepolia Testnet, Cronos ZKevm Mainnet, Cronos ZKevm Testnet, Abstract Chain Testnet.
 
 ![image](./images/blue-dark-sign.svg)
 

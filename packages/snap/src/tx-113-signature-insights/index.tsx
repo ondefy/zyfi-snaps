@@ -53,7 +53,7 @@ export const onSignature: OnSignatureHandler = async ({ signature }) => {
     };
   }
 
-  const link: string | any = explorerLinks[domain.chainId];
+  const link = explorerLinks[domain.chainId];
   const fromAddress = ethers.utils.getAddress(
     `0x${BigInt(message.from).toString(16)}`,
   );
@@ -143,9 +143,12 @@ export const onInstall: OnInstallHandler = async () => {
         <Box>
           <Heading>Installation successful 🎉</Heading>
           <Text>
-            Thank you for installing Zyfi Paymaster Insights. Now, you will be
+            Thank you for installing Zyfi Paymaster Insights. 
+          </Text>
+          <Text>  
+            Now, you will be
             able to get more information regarding paymaster transactions(txType:113) on
-            ZKsync and other elasitc chains.
+            ZKsync and other elastic chains.
           </Text>
         </Box>
       ),

@@ -1,13 +1,13 @@
 {
   "version": "0.1.0",
-  "description": "This snap provides signature insights for the paymaster transaction type : 113 on ZKsync ecosystem. This snap supports following ZKevm Elastic Chains: ZKsync Era, ZKsync Sepolia Testnet, Cronos ZKevm Mainnet, Cronos ZKevm Testnet, Abstract Chain Testnet.",
+  "description": "This snap provides signature insights and readability for the paymaster transactions(type : 113) on ZKsync ecosystem and other Elastic chains.",
   "proposedName": "Zyfi Paymaster Insights",
   "repository": {
     "type": "git",
     "url": "https://github.com/ondefy/zyfi-snaps.git"
   },
   "source": {
-    "shasum": "Smeo8kbQ+0HoiLHvVamU962AyLKTChsZU9qSxWehFBE=",
+    "shasum": "08mzBM60Teu5ieAX7FaSHL6tqE3MqY9+NYpHyJKWQA4=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
@@ -20,7 +20,9 @@
   "initialPermissions": {
     "endowment:signature-insight": {
       "allowSignatureOrigin": true
-    }
+    },
+    "endowment:lifecycle-hooks": {},
+    "snap_dialog": {}
   },
   "manifestVersion": "0.1"
 }
