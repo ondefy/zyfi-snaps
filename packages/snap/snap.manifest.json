@@ -7,12 +7,12 @@
     "url": "https://github.com/ondefy/zyfi-snaps.git"
   },
   "source": {
-    "shasum": "08mzBM60Teu5ieAX7FaSHL6tqE3MqY9+NYpHyJKWQA4=",
+    "shasum": "F8f2M6/vpFU2WRDKiMVFfXJbkYB4bifhbIXIpGftmkg=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",
         "iconPath": "images/blue-dark-sign.svg",
-        "packageName": "zyfi-paymaster-insights-snap",
+        "packageName": "zyfi-paymaster-insight-snap",
         "registry": "https://registry.npmjs.org/"
       }
     }

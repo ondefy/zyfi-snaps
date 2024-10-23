@@ -1,5 +1,5 @@
 {
-  "name": "zyfi-paymaster-insights-snap",
+  "name": "zyfi-paymaster-insight-snap",
   "version": "0.1.0",
   "description": "This snap provides signature insights and readability for the paymaster transactions(type : 113) on ZKsync ecosystem and other Elastic chains.",
   "repository": {
