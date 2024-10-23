@@ -7,7 +7,7 @@
     "url": "https://github.com/ondefy/zyfi-snaps.git"
   },
   "source": {
-    "shasum": "XGbTfCdYKYmxTg4viDpjOUPie+f8VfYhtkl/awPO6ZE=",
+    "shasum": "Smeo8kbQ+0HoiLHvVamU962AyLKTChsZU9qSxWehFBE=",
     "location": {
       "npm": {
         "filePath": "dist/bundle.js",

@@ -1,29 +1,25 @@
-import { ethers } from 'ethers';
-import { OnSignatureHandler, SeverityLevel } from '@metamask/snaps-sdk';
+import type { OnSignatureHandler, OnInstallHandler } from '@metamask/snaps-sdk';
+import { SeverityLevel } from '@metamask/snaps-sdk';
 import {
   Box,
   Heading,
   Text,
   Bold,
   Link,
-  Row,
-  Image,
   Divider,
   Copyable,
-  Italic,
 } from '@metamask/snaps-sdk/jsx';
+import { ethers } from 'ethers';
+
 const paymasterFlowInterface = new ethers.utils.Interface([
   'function general(bytes calldata input) external',
   'function approvalBased(address _feeToken, uint256 _allowance, bytes calldata _innerInput) external',
 ]);
-export const onSignature: OnSignatureHandler = async ({
-  signature,
-  signatureOrigin,
-}) => {
-  const { from, data, signatureMethod } = signature;
+export const onSignature: OnSignatureHandler = async ({ signature }) => {
+  const { data, signatureMethod } = signature;
 
   let domain;
-  let explorerLinks: any = {
+  const explorerLinks: any = {
     300: 'https://sepolia.explorer.zksync.io/address/',
     324: 'https://explorer.zksync.io/address/',
     388: 'https://explorer.zkevm.cronos.org/address/',
@@ -37,7 +33,7 @@ export const onSignature: OnSignatureHandler = async ({
     domain = data.domain;
     if (
       !Object.keys(explorerLinks)
-        .map((key) => parseInt(key))
+        .map((key) => parseInt(key, 10))
         .includes(domain.chainId)
     ) {
       return null;
@@ -45,8 +41,8 @@ export const onSignature: OnSignatureHandler = async ({
   } else {
     return null;
   }
-  const message = data.message;
-  if (message.txType != '113') {
+  const { message } = data;
+  if (message.txType !== '113') {
     return {
       content: (
         <Box>
@@ -57,34 +53,35 @@ export const onSignature: OnSignatureHandler = async ({
     };
   }
 
-  let link = explorerLinks[domain.chainId];
-  let fromAddress = ethers.utils.getAddress(
-    '0x' + BigInt(message.from).toString(16),
+  const link: string | any = explorerLinks[domain.chainId];
+  const fromAddress = ethers.utils.getAddress(
+    `0x${BigInt(message.from).toString(16)}`,
   );
-  let toAddress = ethers.utils.getAddress(
-    '0x' + BigInt(message.to).toString(16),
+  const toAddress = ethers.utils.getAddress(
+    `0x${BigInt(message.to).toString(16)}`,
   );
   let paymasterAddress = '';
   let paymasterType = '';
   let feeTokenAddress = '';
   let feeTokenAmount;
-  if (message.paymaster != undefined) {
+  if (message.paymaster !== undefined) {
     paymasterAddress = ethers.utils.getAddress(
-      '0x' + BigInt(message.paymaster).toString(16),
+      `0x${BigInt(message.paymaster).toString(16)}`,
     );
     const type = message.paymasterInput.substring(0, 10);
     if (
-      type == paymasterFlowInterface.getSighash('general(bytes calldata input)')
+      type ===
+      paymasterFlowInterface.getSighash('general(bytes calldata input)')
     ) {
       paymasterType = 'General';
-    } else if (type == paymasterFlowInterface.getSighash('approvalBased')) {
+    } else if (type === paymasterFlowInterface.getSighash('approvalBased')) {
       paymasterType = 'Approval Based';
       const decodePaymasterInput = paymasterFlowInterface.decodeFunctionData(
         'approvalBased',
         message.paymasterInput,
       );
       feeTokenAddress = decodePaymasterInput._feeToken;
-      //feeTokenAmount = (decodePaymasterInput._allowance.toString()/10**18).toString();
+      // feeTokenAmount = (decodePaymasterInput._allowance.toString()/10**18).toString();
       feeTokenAmount = decodePaymasterInput._allowance.toString();
     }
   }
@@ -92,7 +89,7 @@ export const onSignature: OnSignatureHandler = async ({
   return {
     content: (
       <Box>
-        {/*<Image src={svgIcon}></Image>*/}
+        {/* <Image src={svgIcon}></Image>*/}
         <Heading>Zyfi Paymaster Insights</Heading>
         <Divider />
         <Text>From:</Text>
@@ -103,7 +100,7 @@ export const onSignature: OnSignatureHandler = async ({
         <Link href={link + toAddress}>Explorer</Link>
         <Divider />
 
-        {paymasterType == 'Approval Based' ? (
+        {paymasterType === 'Approval Based' ? (
           <Box>
             <Text>
               Paymaster Type: <Bold> {paymasterType}</Bold>
@@ -135,4 +132,23 @@ export const onSignature: OnSignatureHandler = async ({
     ),
     severity: SeverityLevel.Critical,
   };
+};
+
+export const onInstall: OnInstallHandler = async () => {
+  await snap.request({
+    method: 'snap_dialog',
+    params: {
+      type: 'alert',
+      content: (
+        <Box>
+          <Heading>Installation successful 🎉</Heading>
+          <Text>
+            Thank you for installing Zyfi Paymaster Insights. Now, you will be
+            able to get more information regarding paymaster transactions(txType:113) on
+            ZKsync and other elasitc chains.
+          </Text>
+        </Box>
+      ),
+    },
+  });
 };
