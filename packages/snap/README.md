@@ -1,12 +1,11 @@
-# TypeScript Example Snap
+# Zyfi Paymaster Insight Snap
 
-This snap demonstrates how to develop a snap with TypeScript. It is a simple
-snap that displays a confirmation dialog when the `hello` JSON-RPC method is
-called.
+This snap provides signature insights for the paymaster transaction type : 113 on ZKsync ecosystem. This snap supports following ZKevm Elastic Chains: ZKsync Era, ZKsync Sepolia Testnet, Cronos ZKevm Mainnet, Cronos ZKevm Testnet, Abstract Chain Testnet.
 
-## Testing
+![image](./images/blue-dark-sign.svg)
 
-The snap comes with some basic tests, to demonstrate how to write tests for
-snaps. To test the snap, run `yarn test` in this directory. This will use
-[`@metamask/snaps-jest`](https://github.com/MetaMask/snaps/tree/main/packages/snaps-jest)
-to run the tests in `src/index.test.ts`.
+## What problem does this snap solve? 
+
+With this snap, paymaster transactions type: 113  on ZKsync becomes readable. This way, users can ensure the important details of the type: 113 transactions such as "From" address, "To" address, "Paymaster" address etc. of the signature  before signing them.
+
+![image2](./images/signature-before-after.png)
